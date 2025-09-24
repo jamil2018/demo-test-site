@@ -45,6 +45,7 @@ export default function LoginPage() {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="Enter your email"
                 className="input input-bordered w-full"
                 value={email}
@@ -60,6 +61,7 @@ export default function LoginPage() {
               </label>
               <input
                 type="password"
+                name="password"
                 placeholder="Enter your password"
                 className="input input-bordered w-full"
                 value={password}

@@ -40,10 +40,11 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="form-control">
-              <label className="label">
+              <label className="label" htmlFor="email">
                 <span className="label-text">Email</span>
               </label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 placeholder="Enter your email"
@@ -56,10 +57,11 @@ export default function LoginPage() {
             </div>
 
             <div className="form-control">
-              <label className="label">
+              <label className="label" htmlFor="password">
                 <span className="label-text">Password</span>
               </label>
               <input
+                id="password"
                 type="password"
                 name="password"
                 placeholder="Enter your password"
@@ -72,7 +74,7 @@ export default function LoginPage() {
             </div>
 
             {error && (
-              <div className="alert alert-error">
+              <div className="alert alert-error" data-test-id="error-message">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="stroke-current shrink-0 h-6 w-6"

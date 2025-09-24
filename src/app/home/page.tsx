@@ -32,7 +32,11 @@ export default function HomePage() {
           <h1 className="text-xl font-bold">Demo App</h1>
         </div>
         <div className="flex-none">
-          <button onClick={handleLogout} className="btn btn-ghost">
+          <button
+            onClick={handleLogout}
+            className="btn btn-ghost"
+            data-test-id="logout-button"
+          >
             Logout
           </button>
         </div>
@@ -41,17 +45,26 @@ export default function HomePage() {
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-primary mb-4">
+            <h1
+              className="text-4xl font-bold text-primary mb-4"
+              data-test-id="home-page-title"
+            >
               Welcome to Home Page
             </h1>
-            <p className="text-lg text-base-content/70">
+            <p
+              className="text-lg text-base-content/70"
+              data-test-id="home-page-description"
+            >
               This is the home page of the demo application
             </p>
           </div>
 
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body text-center">
-              <h2 className="card-title text-2xl justify-center mb-4">
+              <h2
+                className="card-title text-2xl justify-center mb-4"
+                data-test-id="home-page-hello"
+              >
                 Hello, {userEmail}!
               </h2>
               <p className="text-base-content/70 mb-6">

@@ -50,6 +50,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                data-test-id="email-input"
               />
             </div>
 
@@ -64,6 +65,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                data-test-id="password-input"
               />
             </div>
 
@@ -87,13 +89,20 @@ export default function LoginPage() {
             )}
 
             <div className="form-control mt-6">
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                data-test-id="login-button"
+              >
                 Login
               </button>
             </div>
           </form>
 
-          <div className="mt-6 p-4 bg-info rounded-lg">
+          <div
+            className="mt-6 p-4 bg-info rounded-lg"
+            data-test-id="demo-credentials"
+          >
             <h3 className="font-semibold mb-2 text-gray-800 text-lg">
               Demo Credentials
             </h3>

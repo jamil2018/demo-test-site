@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { isLoggedIn, getUserEmail, clearSession } from "@/utils/session";
 
 export default function HomePage() {
   const [userEmail, setUserEmail] = useState("");
@@ -9,19 +10,16 @@ export default function HomePage() {
 
   useEffect(() => {
     // Check if user is logged in
-    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
-    const email = sessionStorage.getItem("userEmail");
-
-    if (isLoggedIn !== "true") {
+    if (!isLoggedIn()) {
       router.push("/login");
     } else {
+      const email = getUserEmail();
       setUserEmail(email || "");
     }
   }, [router]);
 
   const handleLogout = () => {
-    sessionStorage.removeItem("isLoggedIn");
-    sessionStorage.removeItem("userEmail");
+    clearSession();
     router.push("/login");
   };
 

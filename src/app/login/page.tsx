@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { isLoggedIn, saveSession } from "@/utils/session";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -11,8 +12,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     // Check if user is already logged in
-    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
-    if (isLoggedIn === "true") {
+    if (isLoggedIn()) {
       router.push("/home");
     }
   }, [router]);
@@ -22,8 +22,7 @@ export default function LoginPage() {
     setError("");
 
     if (email === "demo@example.com" && password === "test1234") {
-      sessionStorage.setItem("isLoggedIn", "true");
-      sessionStorage.setItem("userEmail", email);
+      saveSession(email);
       router.push("/home");
     } else {
       setError("Invalid email or password");
